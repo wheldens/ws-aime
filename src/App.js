@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './styling/components/App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import * as contentful from 'contentful'
+
+// components
+// import Navbar from './components/navbar'
+import Page from './components/page'
+
+
+class App extends Component {
+
+
+    client = contentful.createClient({
+            space: 'z1ydzalb7kpj',
+            accessToken: '5F2MrOCUIXjig420deajpubocE3qG02Y6Xy6vN00VJk'
+        }
+    );
+
+
+    state = {
+        contentful: {
+            homepage: {}
+        }
+    };
+
+    componentDidMount() {
+        this.fetchContentful().then(this.setContentful);
+    }
+
+    fetchContentful = () => this.client.getEntries({
+        content_type: 'contentPage'
+    });
+
+    setContentful = response => {
+
+        this.setState({
+            contentful: {homepage: response.items[0].fields}
+        });
+
+        console.log('s: ', this.state);
+    };
+
+
+    render() {
+        return (
+            <React.Fragment>
+                <Page/>
+            </React.Fragment>
+        );
+    }
 }
 
+
 export default App;
+
+
