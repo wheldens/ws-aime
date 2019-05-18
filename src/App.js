@@ -1,56 +1,35 @@
 import React, {Component} from 'react';
+import {Route, Switch, Redirect} from 'react-router-dom'
+import NotFound from "./components/not-found";
+import Home from "./components/home";
+import Pdp from "./components/pdp";
+
 import './styling/components/App.scss';
 
-import * as contentful from 'contentful'
-
 // components
-// import Navbar from './components/navbar'
 import Page from './components/page'
-
+import Navbar from './components/navbar'
 
 class App extends Component {
-
-
-    client = contentful.createClient({
-            space: 'z1ydzalb7kpj',
-            accessToken: '5F2MrOCUIXjig420deajpubocE3qG02Y6Xy6vN00VJk'
-        }
-    );
-
-
-    state = {
-        contentful: {
-            homepage: {}
-        }
-    };
-
-    componentDidMount() {
-        this.fetchContentful().then(this.setContentful);
-    }
-
-    fetchContentful = () => this.client.getEntries({
-        content_type: 'contentPage'
-    });
-
-    setContentful = response => {
-
-        this.setState({
-            contentful: {homepage: response.items[0].fields}
-        });
-
-        console.log('s: ', this.state);
-    };
-
 
     render() {
         return (
             <React.Fragment>
-                <Page/>
+                <Navbar/>
+
+                <div className="content">
+                    <Switch>
+                        <Route path="/not-found" component={NotFound}/>
+                        <Route path="/:category/:work" component={Pdp}/>
+                        <Route path="/:category" component={Page}/>
+                        <Route path="/" exact component={Home}/>
+                        <Redirect to="/not-found"/>
+                    </Switch>
+                </div>
             </React.Fragment>
         );
     }
 }
-
 
 export default App;
 

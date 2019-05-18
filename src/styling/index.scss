@@ -1,0 +1,17 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// custom overrides
+@import "variables";
+
+
+.textBlock {
+  max-width: 800px;
+  background-color: $primary;
+  padding: 20px;
+  border-radius: $border-radius-sm;
+}
+
+
+
+
+

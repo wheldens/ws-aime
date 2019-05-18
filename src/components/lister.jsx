@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import Card from './card'
+
+import Card from './common/card'
 
 class Lister extends Component {
 
+    goToWork = (work)=> {
+        this.props.history.push('/' + this.props.match.params.category + '/'  + work.fields.slug)
+    };
 
     render() {
+        const {data} = this.props;
 
         const listerStyle = {
             flexDirection: 'row',
@@ -16,24 +21,21 @@ class Lister extends Component {
         };
 
         return (
-            <div
-                style={listerStyle}
-                className="m-2"
-            >
-
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-
-
+            <div style={listerStyle}
+                 className="m-2">
+                {data.works.map(work =>
+                    <Card 
+                        work={work}
+                        goToWork={this.goToWork}
+                    />
+                )}
             </div>
-        );
+        )
     }
 }
 
-Lister.propTypes = {};
+Lister.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default Lister;

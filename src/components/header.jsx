@@ -1,17 +1,6 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import Banner from './common/banner';
 
-
-class Header extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                banner
-            </React.Fragment>
-        );
-    }
-}
-
-Header.propTypes = {};
+const Header = ({heading, desc, img}) => <Banner heading={heading} desc={desc} img={img}/>;
 
 export default Header;
