@@ -54,8 +54,7 @@ class Pdp extends Component {
         const work = this.state.contentful[this.props.match.params.work];
         return (
             <React.Fragment>
-                {work && <div className="container mt-4">
-
+                {work  && <div className="container mt-4">
                     <h2>{work.titleWork}</h2>
                     <h4>{work.location} {work.date}</h4>
                     <p>{work.shortDescription}</p>

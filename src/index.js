@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom';
 
 import './styling/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// console.log('env: ', process.env);
+
 
 ReactDOM.render(
     <BrowserRouter>

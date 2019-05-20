@@ -44,9 +44,9 @@ class Page extends Component {
         return (
              <React.Fragment>
                 {category && <Header heading={category.heading} desc={category.categoryDescription} img={category.categoryImg.fields.file.url}/>}
-                 {category && <Lister data={category.worksLister.fields} history={this.props.history} match={this.props.match} />}
 
-                    <button className="btn btn-primary">haha</button>
+                 {!this.props.isLoggedIn && <h2>Niet ingelogd</h2>}
+                 {category && this.props.isLoggedIn && <Lister data={category.worksLister.fields} history={this.props.history} match={this.props.match} />}
              </React.Fragment>
         );
     }

@@ -19,7 +19,7 @@ const Banner = ({heading, desc, img}) => {
                 background-size: cover;
                 background-image: url(${img}?w=1200);
                 background-position: center;
-                filter: grayscale(100%);
+                filter: sepia(50%);
             }`;
 
     const BannerInside = styled.div`
