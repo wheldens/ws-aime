@@ -11,16 +11,14 @@ import {Link} from "react-router-dom";
 import Page from './containers/page'
 import Navbar from './containers/navbar'
 import FooterContainer from "./components/footer_container";
-
-import 'bootstrap';
 import ProptectedRoute from "./components/common/ProptectedRoute";
 
 class App extends Component {
 
     render() {
 
-        const isLoggedIn = false;
-        
+        const isLoggedIn = true;
+
         return (
             <React.Fragment>
                 <Navbar>
