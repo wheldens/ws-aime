@@ -1,17 +1,26 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
-
 // custom overrides
 @import "variables";
 
 
+#root {
+  position: relative;
+}
+
+.content {
+  padding-bottom: 300px;
+}
+
 .textBlock {
   max-width: 800px;
-  background-color: $primary;
+  background-color: $white;
   padding: 20px;
   border-radius: $border-radius-sm;
 }
 
 
-
-
-
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}

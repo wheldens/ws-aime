@@ -9,6 +9,7 @@ import './styling/components/App.scss';
 // components
 import Page from './components/page'
 import Navbar from './components/navbar'
+import FooterContainer from "./components/footer_container";
 
 class App extends Component {
 
@@ -26,6 +27,8 @@ class App extends Component {
                         <Redirect to="/not-found"/>
                     </Switch>
                 </div>
+
+                <FooterContainer/>
             </React.Fragment>
         );
     }

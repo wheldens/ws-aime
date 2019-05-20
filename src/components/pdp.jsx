@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import cf from "../services/contentfulService";
+import VideoPlayer from "./common/videoPlayer";
 
 class Pdp extends Component {
 
     state = {
-        contentful: ''
+        contentful: '',
+        mainImg: ''
     };
 
     async componentDidMount() {
@@ -36,14 +38,59 @@ class Pdp extends Component {
     };
 
 
+    setMainImg = (img) => {
+        const workProp = this.props.match.params.work;
+        const contentful = {...this.state.contentful};
+        contentful[workProp].image = img;
+        this.setState({contentful})
+    };
+
+    goBack =()=> {
+        this.props.history.push('/' + this.props.match.params.category);
+    };
+
+
     render() {
         const work = this.state.contentful[this.props.match.params.work];
-        console.log('w: ', work);
-
         return (
-            <div>
-                {work && <div className="container"><h1>{work.title   }</h1></div>}
-            </div>
+            <React.Fragment>
+                {work && <div className="container mt-4">
+
+                    <h2>{work.titleWork}</h2>
+                    <h4>{work.location} {work.date}</h4>
+                    <p>{work.shortDescription}</p>
+
+                    <div className="row">
+                        <main className="col-6">
+                            <img
+                                width="100%"
+                                src={work.image.fields.file.url}
+                                alt={work.image.fields.title}/>
+
+                            <button onClick={this.goBack} className="btn mt-4">back</button>
+                        </main>
+                        <aside className="col-6">
+
+                            { work.videoId && <VideoPlayer videoId={work.videoId}/>}
+
+                            {work.images && work.images.map(img =>
+                                <img
+                                    className="m-1"
+                                    key={img.fields.title}
+                                    onClick={() => this.setMainImg(img)}
+                                    width="30%"
+                                    src={img.fields.file.url}
+                                    alt={img.fields.title}
+                                />
+                            )}
+
+                        </aside>
+                    </div>
+                </div>}
+
+
+
+            </React.Fragment>
 
         );
     }

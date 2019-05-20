@@ -1,17 +1,21 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-class Footer extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function FooterContainer(props) {
+    const footerStyles = {
+        color: 'white',
+        backgroundColor: 'black',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '300px'
+    };
+
+
+    return (
+        <footer className="mt-4 footer" style={footerStyles}>
+                <h3>Aime Yoshikawa</h3>
+        </footer>
+    );
 }
 
-Footer.propTypes = {};
-
-export default Footer;
-
+export default FooterContainer;
