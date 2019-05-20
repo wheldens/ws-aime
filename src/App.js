@@ -6,10 +6,11 @@ import Home from "./containers/home";
 import Pdp from "./containers/pdp";
 import {Link} from "react-router-dom";
 
-
 // components
 import Page from './containers/page'
-import Navbar from './containers/navbar'
+
+import NavbarBoot from './components/bootstrap/navbar-bootstrap'
+
 import FooterContainer from "./components/footer_container";
 import ProptectedRoute from "./components/common/ProptectedRoute";
 
@@ -20,13 +21,13 @@ class App extends Component {
         const isLoggedIn = true;
 
         return (
-            <React.Fragment>
-                <Navbar>
+            <>
+                <NavbarBoot>
                     <Link className="nav-link" to="/">Home</Link>
                     <Link className="nav-link" to="/installations">Installations</Link>
                     <Link className="nav-link" to="/2d">2D</Link>
                     <Link className="nav-link" to="/3d">3D</Link>
-                </Navbar>
+                </NavbarBoot>
 
 
                 <div className="content">
@@ -46,7 +47,7 @@ class App extends Component {
                 </div>
 
                 <FooterContainer/>
-            </React.Fragment>
+            </>
         );
     }
 }

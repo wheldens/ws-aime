@@ -1,10 +1,14 @@
 import React from 'react';
+import ModalBoot from "./bootstrap/modal-bootstrap";
+import {Modal} from "react-bootstrap";
+
 
 function FooterContainer(props) {
     const footerStyles = {
         color: 'white',
         backgroundColor: 'black',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         height: '300px'
