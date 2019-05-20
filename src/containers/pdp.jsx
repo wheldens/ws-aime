@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import cf from "../services/contentfulService";
-import VideoPlayer from "./common/videoPlayer";
+import VideoPlayer from "../components/videoPlayer";
 
 class Pdp extends Component {
 

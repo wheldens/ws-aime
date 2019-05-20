@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import Joi from "joi-browser";
 import React from "react";
-import Input from "../common/input";
+import Input from "./input";
 import Select from "./select";
 
 

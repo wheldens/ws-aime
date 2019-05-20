@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Lister from './lister'
-import Header from '../components/header';
+import Header from './header';
 
 import cf from '../services/contentfulService'
 
@@ -45,6 +45,8 @@ class Page extends Component {
              <React.Fragment>
                 {category && <Header heading={category.heading} desc={category.categoryDescription} img={category.categoryImg.fields.file.url}/>}
                  {category && <Lister data={category.worksLister.fields} history={this.props.history} match={this.props.match} />}
+
+                    <button className="btn btn-primary">haha</button>
              </React.Fragment>
         );
     }

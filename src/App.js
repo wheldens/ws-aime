@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom'
 import NotFound from "./components/not-found";
-import Home from "./components/home";
-import Pdp from "./components/pdp";
-
-import './styling/components/App.scss';
+import Home from "./containers/home";
+import Pdp from "./containers/pdp";
 
 // components
-import Page from './components/page'
-import Navbar from './components/navbar'
+import Page from './containers/page'
+import Navbar from './containers/navbar'
 import FooterContainer from "./components/footer_container";
 
 class App extends Component {

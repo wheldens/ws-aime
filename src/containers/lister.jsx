@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 
-import Card from './common/card'
+import Card from '../components/card'
 
 class Lister extends Component {
 
